@@ -1,0 +1,31 @@
+http:
+  services:
+    chat-server:
+      loadBalancer:
+        servers:
+          - url: http://host.containers.internal:30300
+    chat-client:
+      loadBalancer:
+        servers:
+          - url: https://app.element.io
+        passHostHeader: false
+  middlewares:
+    chat-wellknown:
+      redirectRegex:
+        regex: ^https://(.*)
+        replacement: https://chat.$1
+  routers:
+    chat-wellknown:
+      entryPoints: https
+      rule: Host(`bonjour.zone`) && PathPrefix(`/.well-known/matrix`)
+      middlewares:
+        - chat-wellknown
+      service: chat-server
+    chat-server: 
+      entryPoints: https
+      rule: Host(`chat.bonjour.zone`) && ( PathPrefix(`/.well-known`) || PathPrefix(`/_matrix`) || PathPrefix(`/_synapse`) )
+      service: chat-server
+    chat-client: 
+      entryPoints: https
+      rule: Host(`chat.bonjour.zone`)
+      service: chat-client

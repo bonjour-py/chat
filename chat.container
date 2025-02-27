@@ -1,0 +1,19 @@
+[Unit]
+Description = Podman Container %N
+
+[Container]
+
+AutoUpdate = registry
+Image = ghcr.io/element-hq/dendrite-monolith
+
+PublishPort = 30300:8008
+
+SecurityLabelDisable = true
+Volume = ./config:/etc/dendrite:ro
+Volume = chat.volume:/var/dendrite
+
+[Service]
+Restart = on-failure
+
+[Install]
+WantedBy = default.target
