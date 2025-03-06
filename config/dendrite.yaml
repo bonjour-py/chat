@@ -5,17 +5,19 @@ global:
   well_known_server_name: chat.bonjour.zone:443
   well_known_client_name: https://chat.bonjour.zone
   well_known_sliding_sync_proxy: chat.bonjour.zone:443
+  database:
+    connection_string: file:///var/dendrite/dendrite.db
   server_notices:
     enabled: true
 
-  # jetstream:
-  #   storage_path: ./
+  jetstream:
+    storage_path: /var/dendrite
 
-# media_api:
-#   base_path: ./media_store
+media_api:
+  base_path: /var/dendrite/media_store
 
-# sync_api:
-#   real_ip_header: X-Real-IP
+sync_api:
+  real_ip_header: X-Real-IP
 
 logging:
   - type: std

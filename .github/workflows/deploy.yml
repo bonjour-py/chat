@@ -25,8 +25,6 @@ jobs:
         run: mkdir secrets
       - name: Configure secrets ALIYUN_OSS
         run: echo '${{ secrets.ALIYUN_OSS }}' >> secrets/aliyun_oss; chmod u=rw,go= secrets/aliyun_oss
-      - name: Configure service DATABASE_PASSWORD
-        run: sed -i 's%----DATABASE_PASSWORD----%${{ secrets.DATABASE_PASSWORD }}%g' config/dendrite.yaml
       - name: Configure service MATRIX_KEY
         run: echo '${{ secrets.MATRIX_KEY }}' > config/matrix_key.pem
       - name: Configure service proxy
