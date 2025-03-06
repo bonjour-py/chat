@@ -1,5 +1,6 @@
 version: 2
 global:
+  private_key: matrix_key.pem
   server_name: bonjour.zone
   well_known_server_name: chat.bonjour.zone:443
   well_known_client_name: https://chat.bonjour.zone
