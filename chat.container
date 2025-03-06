@@ -10,7 +10,7 @@ PublishPort = 30300:8008
 
 SecurityLabelDisable = true
 Volume = ./config:/etc/dendrite:ro
-Volume = chat.volume:/var/dendrite
+Volume = chat.volume:/data
 
 [Service]
 Restart = on-failure

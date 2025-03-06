@@ -8,35 +8,35 @@ global:
   server_notices:
     enabled: true
   jetstream:
-    storage_path: /var/dendrite
+    storage_path: /data
 key_server: 
   database:
-    connection_string: file:///var/dendrite/key_server.db
+    connection_string: file:///data/key_server.db
 room_server: 
   database:
-    connection_string: file:///var/dendrite/room_server.db
+    connection_string: file:///data/room_server.db
 sync_api:
   real_ip_header: X-Real-IP
   database:
-    connection_string: file:///var/dendrite/sync_api.db
+    connection_string: file:///data/sync_api.db
 federation_api: 
   database:
-    connection_string: file:///var/dendrite/federation_api.db
+    connection_string: file:///data/federation_api.db
 relay_api: 
   database:
-    connection_string: file:///var/dendrite/relay_api.db
+    connection_string: file:///data/relay_api.db
 user_api:
   account_database:
-    connection_string: file:///var/dendrite/user_api.db
+    connection_string: file:///data/user_api.db
 client_api:
   registration_shared_secret: ----REGISTRATION_SECRET----
 media_api:
-  base_path: /var/dendrite/media_store
+  base_path: /data/media_store
   database:
-    connection_string: file:///var/dendrite/media_api.db
+    connection_string: file:///data/media_api.db
 mscs: 
   database:
-    connection_string: file:///var/dendrite/mscs.db
+    connection_string: file:///data/mscs.db
 logging:
   - type: std
     level: info
