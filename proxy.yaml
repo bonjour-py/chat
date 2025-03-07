@@ -16,16 +16,19 @@ http:
         replacement: https://chat.$1
   routers:
     chat-wellknown:
-      entryPoints: https
+      entryPoints: 
+        - https
       rule: Host(`bonjour.zone`) && PathPrefix(`/.well-known/matrix`)
       middlewares:
         - chat-wellknown
       service: chat-server
     chat-server: 
-      entryPoints: https
+      entryPoints: 
+        - https
       rule: Host(`chat.bonjour.zone`) && ( PathPrefix(`/.well-known`) || PathPrefix(`/_matrix`) || PathPrefix(`/_synapse`) )
       service: chat-server
     chat-client: 
-      entryPoints: https
+      entryPoints: 
+        - https
       rule: Host(`chat.bonjour.zone`)
       service: chat-client
