@@ -1,0 +1,15 @@
+[Unit]
+Description = Podman Service chat
+
+[Pod]
+ServiceName = chat
+
+PublishPort = 30300:8008
+
+Volume = chat.volume:/data
+
+[Service]
+Restart = on-failure
+
+[Install]
+WantedBy = default.target
