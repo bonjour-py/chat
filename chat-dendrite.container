@@ -5,8 +5,7 @@ AutoUpdate = registry
 Image = ghcr.io/element-hq/dendrite-monolith
 
 SecurityLabelDisable = true
-Volume = ./dendrite.yaml:/etc/dendrite/dendrite.yaml:ro
-Volume = ./matrix_key.pem:/etc/dendrite/matrix_key.pem:ro
+Volume = ./dendrite:/etc/dendrite:ro
 
 [Service]
 Restart = on-failure
