@@ -38,6 +38,6 @@ jobs:
       - name: load service
         run: ssh service@${{ matrix.host }} systemctl --user daemon-reload
       - name: start service
-        run: ssh service@${{ matrix.host }} systemctl --user restart chat-volume chat
+        run: ssh service@${{ matrix.host }} systemctl --user restart chat
       - name: start service proxy
         run: ssh service@${{ matrix.host }} systemctl --user restart proxy
